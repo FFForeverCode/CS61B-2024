@@ -1,36 +1,10 @@
-package deque;
-
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-public class LinkedListDeque61B<T>extends Object implements Deque61B<T>{
+public class LinkedListDeque61B<T>implements Deque61B<T>{
 
     public Node sentinel;
     private int size;
-
-    @Override
-    public Iterator<T> iterator() {
-        return new LinkedListIterator();
-    }
-    public class LinkedListIterator implements Iterator<T>{
-        private int wizPos;
-        public LinkedListIterator(){
-            wizPos = 0;
-        }
-        @Override
-        public boolean hasNext() {
-            return wizPos < size;
-        }
-
-        @Override
-        public T next() {
-            T item=get(wizPos);
-            wizPos++;
-            return item;
-        }
-    }
-
     public class Node{
         private T data;
         private Node next;
@@ -59,10 +33,10 @@ public class LinkedListDeque61B<T>extends Object implements Deque61B<T>{
 
     @Override
     public void addLast(T x) {
-        Node p=new Node(x,sentinel,sentinel.prev);
-        sentinel.prev.next=p;
-        sentinel.prev=p;
-        size++;
+     Node p=new Node(x,sentinel,sentinel.prev);
+     sentinel.prev.next=p;
+     sentinel.prev=p;
+     size++;
 
     }
 
@@ -98,6 +72,7 @@ public class LinkedListDeque61B<T>extends Object implements Deque61B<T>{
         p.next=null;
         p.prev=null;
         return p.data;
+
     }
 
     @Override
@@ -115,50 +90,12 @@ public class LinkedListDeque61B<T>extends Object implements Deque61B<T>{
 
     @Override
     public T get(int index) {
-        Node p= sentinel.next;
-        for(int i=0;i<index;i++){
-            p=p.next;
-        }
-        return p.data;
+        return null;
     }
 
     @Override
     public T getRecursive(int index) {
         throw new UnsupportedOperationException("The method is useless");
     }
-    @Override
-    public boolean equals(Object o){
-        if(o==this){
-            return true;
-        }
-        if(o instanceof LinkedListDeque61B<?> o1){
-            if(o1.size!=this.size){
-                return false;
-            }
-            for(int i=0;i<size;i++){
-                if(o1.get(i)!=get(i)){
-                    return false;
-                }
-            }
-            return true;
-        }
-        return false;
-    }
-    @Override
-    public String toString(){
-        if(size==0){
-            return "";
-        }
-        StringBuilder sb=new StringBuilder();
-        sb.append("[");
-        for(int i=0;i<size-1;i++){
-            sb.append(get(i).toString());
-            sb.append(",");
-        }
-        sb.append(get(size-1).toString());
-        sb.append("]");
-        return sb.toString();
-    }
-
 
 }

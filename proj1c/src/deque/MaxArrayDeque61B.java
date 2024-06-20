@@ -3,24 +3,31 @@ package deque;
 import net.sf.saxon.om.Item;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
-public class ArrayDeque61B<Item> extends Object implements Deque61B<Item> {
-
-
+public class MaxArrayDeque61B <Item>implements Deque61B<Item>{
     private Item[] array;
-    int size;
+    private int size;
     private int capacity;
     private int head;
     private int tail;
     private static final int CAPACITY = 8;
-    public ArrayDeque61B(){
+    public MaxArrayDeque61B(){
         array = (Item[])new Object[CAPACITY];
         size=0;
         capacity=CAPACITY;
         head=0;
         tail=0;
+    }
+    public MaxArrayDeque61B(Comparator<Item>c){
+    }
+    public Item max(){
+        return null;
+    }
+    public Item max(Comparator<Item>c){
+        return null;
     }
     public void resize(int newCapacity){
         Item[] newArray = (Item[])new Object[newCapacity];
@@ -159,7 +166,7 @@ public class ArrayDeque61B<Item> extends Object implements Deque61B<Item> {
         if(o==this){
             return true;
         }
-        if(o instanceof ArrayDeque61B<?>o1){
+        if(o instanceof MaxArrayDeque61B<?>o1){
             if(o1.size!=size){
                 return false;
             }
@@ -187,10 +194,4 @@ public class ArrayDeque61B<Item> extends Object implements Deque61B<Item> {
         sb.append("]");
         return sb.toString();
     }
-    public void ReSet(Item i,int index){
-        index=Math.floorMod(index+head+1,capacity);
-        array[index]=i;
-    }
-
 }
-
