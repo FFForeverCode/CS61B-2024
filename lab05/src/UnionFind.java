@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class UnionFind {
     // TODO: Instance variables
     private int[]parents;
@@ -94,6 +96,10 @@ public class UnionFind {
             parents[root2]+=parents[root1];
             parents[root1]=root2;
         }
+    }
+    public void print(){
+        System.out.println("Hello,World!");
+        System.out.print("Hello World!");
     }
 
 

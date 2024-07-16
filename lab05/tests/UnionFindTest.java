@@ -105,7 +105,8 @@ public class UnionFindTest {
         uf.union(0, 2);
         uf.union(0, 3);
         uf.union(0, 4);
-        assertThat(uf.sizeOf(0)).isEqualTo(5);
+        uf.union(0,6);
+        assertThat(uf.sizeOf(0)).isEqualTo(6);
     }
     @Test
     public void Connect(){
@@ -115,6 +116,12 @@ public class UnionFindTest {
         assertThat(uf.connected(0,1)).isTrue();
         assertThat(uf.connected(0,2)).isTrue();
         assertThat(uf.connected(0,7)).isFalse();
+    }
+    @Test
+    public void Print(){
+        UnionFind a=new UnionFind(5);
+        a.print();
+
     }
 
 }
