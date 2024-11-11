@@ -1,6 +1,8 @@
 package ngrams;
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import static ngrams.TimeSeries.MAX_YEAR;
 import static ngrams.TimeSeries.MIN_YEAR;
@@ -16,7 +18,7 @@ import static ngrams.TimeSeries.MIN_YEAR;
  * @author Josh Hug
  */
 public class NGramMap {
-
+    Map<String,TimeSeries>map = new HashMap<>();
     // TODO: Add any necessary static/instance variables.
 
     /**
